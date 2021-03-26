@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom'
-import { observer } from 'mobx-react-lite'
+
 
 import './Modal.scss'
 
 let node:any = null
 
-const Modal:React.FC<any> = observer( ( {name, lastName }:any ) => {
+const Modal:React.FC<any> =  ( {name, lastName }:any ) => {
     const onClose = () => {
         document.body.removeChild(node)
         node = null
@@ -29,7 +29,7 @@ const Modal:React.FC<any> = observer( ( {name, lastName }:any ) => {
             </div>
         </div>
     )
-})
+}
 
 export const renderModal:React.FC<any> = (name, lastName,):any => {
     if (!node) {
