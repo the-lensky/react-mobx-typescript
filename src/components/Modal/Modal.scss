@@ -1,57 +1,77 @@
-$color_red: #da4c34;
-$m_b: 15px;
-$border_radius: 20px;
-
 .modal-wrapper {
-    border-radius: 20px;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #3e3d3d94;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+    h2 {
+        text-align: center;
+        margin-bottom:15px;
+    }
+
+    p {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    button {
+        margin: 0 auto;
+        width: 80%;
+        padding: 8px 10px;
+        font-size: 15px; 
+        border: 0px;
+        background:  #da4c34;
+        color: #fff;
+        cursor: pointer;
+        border-radius:20px;
+        outline: none;
+
+        &:hover {
+            background:  #eb0e0e;
+            font-weight: bold;
+           }
+    }
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 500px;
     width: 100%;
+    height:200px;
     background: #fff;
-    margin: 50px auto;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
-    padding: 30px;
-    text-align: center;
+    border-radius:10px;
+    box-shadow:0px 14px 28px rgba(0,0,0,0.25)
+    
+}
+@media (max-width:600px) {
+    .modal-wrapper {
+        margin-bottom: 10px;
+    }
+  }
 
+@media (max-width:300px) {
+    .modal-wrapper {
         h2 {
-            margin-bottom: $m_b;
+            font-size:25px;
         }
 
         p {
-            font-size: 36px;
-            margin-bottom: $m_b;
-            font-weight: 600;
+            font-size:22px;
         }
 
         button {
-            width: 100%;
-            padding: 8px 10px;
-            font-size: 15px; 
-            border: 0px;
-            background:  $color_red;
-            color: #fff;
-            cursor: pointer;
-            border-radius:$border_radius;
-            outline: none;
-
-            &:hover {
-                background:  #eb0e0e;
-                font-weight: bold;
-               }
+            width:70%;
         }
 }
-  @media (max-width:360px) {
-        .modal-wrapper {
-            h2 {
-                font-size:20px;
-            }
 
-            p {
-                font-size:20px;
-            }
-
-            button {
-                width: 80%;
-            }
-    }
-  
 }

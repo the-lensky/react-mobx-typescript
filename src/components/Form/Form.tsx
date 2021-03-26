@@ -13,8 +13,8 @@ import './Form.scss'
     const errMesage = 'Поле не может быть пустым'
 
     return (
-        <div className='form-wrapper' >
-            <div className='input-wrapper' >
+        <div className='form-wrapper'>
+            <div className='input-wrapper'>
                 <label>Имя</label>
                 { isNameErr && <div className='input-error'> {errMesage} </div> }
                 <input

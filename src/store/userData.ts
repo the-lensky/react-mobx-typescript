@@ -1,20 +1,18 @@
 import { makeAutoObservable } from 'mobx'
+import { renderModal } from '../components/Modal/Modal'
 
 interface UserDataInterface {
     name:string,
     lastName:string,
     isNameErr:boolean,
     isLastNameErr:boolean,
-    isShowPop:boolean
 }
 
  export interface ClassInterface {
     data:UserDataInterface,
     addName(userName:string): void,
     addLastName(userLastName:string): void,
-    showPop(isShowPop:boolean): void,
-    onSubmit(userName:string, userLastName:string, showPop:boolean): void,
-    isClosePop(isShowPop:boolean): void
+    onSubmit(userName:string, userLastName:string): void,
     }
 
 
@@ -25,7 +23,6 @@ class UserData implements ClassInterface {
         lastName: '',
         isNameErr:false,
         isLastNameErr:false,
-        isShowPop: false,
     }
 
     constructor(){
@@ -47,24 +44,17 @@ class UserData implements ClassInterface {
             this.data = {...this.data, isLastNameErr: true}
         }
     }
-
-    showPop(isShowPop:boolean){
-        this.data = {...this.data, isShowPop: true }
-    }
-
-    onSubmit(userName:string, userLastName:string, showPop:boolean){
+    
+    onSubmit(userName:string, userLastName:string){
 
         this.addName(userName)
         this.addLastName(userLastName)
 
         if(!this.data.isNameErr && !this.data.isLastNameErr){
-            this.showPop(showPop)
+            renderModal(this.data.name,this.data.lastName)
         }
     }
-   
-    isClosePop(isShowPop:boolean){
-        this.data = {...this.data, isShowPop: !isShowPop}
-    }
+    
 }
 
 export default new UserData
